@@ -4,7 +4,7 @@
   </mat-toolbar>
 
   <div *ngIf="students$ | async as students; else loading">
-    <table mat-table [dataSource]="students" class="mat-elevation-z8">
+    <table mat-table [dataSource]="students" class="mat-elevation-z8" aria-label="Students Table">
 
 
       <!--- Note that these columns can be defined in any order.

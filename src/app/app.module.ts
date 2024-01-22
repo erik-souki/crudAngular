@@ -18,12 +18,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [
-    provideClientHydration(),
-  //  provideHttpClient(
-    //  withFetch()  // Disable fetch for HttpClient
-   // ),
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

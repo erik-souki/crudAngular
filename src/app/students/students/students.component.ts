@@ -21,7 +21,9 @@ export class StudentsComponent {
     private studentsService: StudentsService,
     public dialog: MatDialog
     ) {
+
    // this.studentsService = new StudentsService();
+
     this.students$ = this.studentsService.list()
     .pipe(
       catchError(error => {
@@ -34,11 +36,11 @@ export class StudentsComponent {
 
 
 
-onError(errorMsg: string) {
-  this.dialog.open(ErrorDialogComponent, {
-    data: errorMsg
-  });
-}
+  onError(errorMsg: string) {
+    this.dialog.open(ErrorDialogComponent, {
+      data: errorMsg
+    });
+  }
 
 }
 

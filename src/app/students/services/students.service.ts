@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay, first, tap } from 'rxjs/operators';
+import { first, tap } from 'rxjs/operators';
 
 import { Student } from '../model/student';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,9 @@ import { Student } from '../model/student';
 export class StudentsService {
 
   private readonly API = 'api/students';
+  http: any;
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   list() {
     return this.httpClient.get<Student[]>(this.API)
@@ -19,6 +21,10 @@ export class StudentsService {
       first(),
       tap(students => console.log(students))
     );
+  }
+
+  getStudents(): Observable<any> {
+    return this.http.get(this.API);
   }
 
 }
